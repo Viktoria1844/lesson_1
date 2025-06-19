@@ -20,7 +20,7 @@ public class Main {
         //7
         System.out.println(isNegative());
         //8
-        printIsString("Hello people!!!",2);
+        printIsString("Hello people!!!", 2);
         //9
         System.out.println(isLeapYear(2098));
         //10
@@ -127,6 +127,7 @@ public class Main {
             else arr[i] = 1;
         }
     }
+
     //11
     public static void Array100() {
         int[] arr = new int[100];
