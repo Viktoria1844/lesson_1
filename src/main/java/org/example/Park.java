@@ -3,11 +3,11 @@ package org.example;
 public class Park {
     private String name;
 
-    public Park(String name){
+    public Park(String name) {
         this.name = name;
     }
 
-    public class Attraction{
+    public class Attraction {
         private String name;
         private String workingHours;
         private int price;

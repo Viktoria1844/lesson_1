@@ -8,7 +8,7 @@ public class Product {
     private int price;
     private boolean booking_status;
 
-    public Product(String name,String production_date,String manufacturer,String country_of_origin,int price, boolean booking_status){
+    public Product(String name, String production_date, String manufacturer, String country_of_origin, int price, boolean booking_status) {
         this.name = name;
         this.production_date = production_date;
         this.manufacturer = manufacturer;
@@ -17,7 +17,7 @@ public class Product {
         this.booking_status = booking_status;
     }
 
-    public String toString(){
+    public String toString() {
         return "Название: " + name +
                 ", Дата производства: " + production_date +
                 ", Производитель: " + manufacturer +
@@ -26,7 +26,7 @@ public class Product {
                 ", Состояние бронирования покупателем: " + booking_status + ";";
     }
 
-    public void info(){
+    public void info() {
         System.out.println("Название: " + name +
                 ", Дата производства: " + production_date +
                 ", Производитель: " + manufacturer +
