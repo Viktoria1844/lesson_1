@@ -14,11 +14,11 @@ public class Main {
         //4
         compareNumbers();
         //5
-        System.out.println(checkSum());
+        System.out.println(checkSum(11, 25));
         //6
-        printNumberType();
+        printNumberType(-1);
         //7
-        System.out.println(isNegative());
+        System.out.println(isNegative(0));
         //8
         printIsString("Hello people!!!", 2);
         //9
@@ -57,14 +57,12 @@ public class Main {
 
     //3
     public static void printCol() {
-        int value = 136;
+        int value = 0;
         if (value <= 0) {
             System.out.println("Красный");
-        }
-        if (value > 0 && value < 100) {
+        } else if (value > 0 && value <= 100) {
             System.out.println("Желтый");
-        }
-        if (value > 100) {
+        } else {
             System.out.println("Зеленый");
         }
     }
@@ -82,16 +80,13 @@ public class Main {
     }
 
     //5
-    public static boolean checkSum() {
-        int a = 15;
-        int b = 5;
+    public static boolean checkSum(int a, int b) {
         int sum = a + b;
         return sum >= 10 && sum <= 20;
     }
 
     //6
-    public static void printNumberType() {
-        int number = -25;
+    public static void printNumberType(int number) {
         if (number >= 0) {
             System.out.println("Число положительное");
         } else {
@@ -100,8 +95,7 @@ public class Main {
     }
 
     //7
-    public static boolean isNegative() {
-        int number = -5;
+    public static boolean isNegative(int number) {
         return number <= 0;
     }
 
