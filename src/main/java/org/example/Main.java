@@ -67,7 +67,7 @@ public class Main {
             String[] value = array[5];
             System.out.println("Значение: " + value);
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.err.println("Произошло исключение: " + e.getMessage());
+            System.err.println(e + ": Ошибка индексации массива ");
         }
     }
 }
