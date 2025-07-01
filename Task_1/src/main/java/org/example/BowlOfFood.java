@@ -17,6 +17,7 @@ public class BowlOfFood {
         }
         System.out.println(". Стало: " + foodAmount);
     }
+
     public void decFood(int reducedFoodAmount) {
         System.out.print("В миске было еды: " + foodAmount);
         foodAmount -= reducedFoodAmount;

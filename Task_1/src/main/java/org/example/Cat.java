@@ -30,7 +30,7 @@ public class Cat extends Animal {
     }
 
     public void eat(BowlOfFood bowl) {
-        if (!fullness && bowl.foodAmount>portionSize) {
+        if (!fullness && bowl.foodAmount > portionSize) {
             fullness = true;
             System.out.println(name + " съел(а) " + portionSize);
             bowl.decFood(portionSize);
@@ -40,6 +40,7 @@ public class Cat extends Animal {
     }
 
     public void printFullnes() {
-        System.out.println(name + (fullness ? " сыт(а)" : " голоден"));;
+        System.out.println(name + (fullness ? " сыт(а)" : " голоден"));
+        ;
     }
 }

@@ -21,16 +21,15 @@ public class Main {
         System.out.println("Количество созданных кошек: " + Cat.getCatCount());
 
         Cat[] cats = new Cat[4];
-        cats[0] = new Cat("Пушистик",0);
+        cats[0] = new Cat("Пушистик", 0);
         cats[1] = new Cat("Кнопа", 18);
         cats[2] = new Cat("Беляш", 31);
-        cats[3] = new Cat("Жорик",24);
+        cats[3] = new Cat("Жорик", 24);
 
         BowlOfFood catsBowl = new BowlOfFood(78);
-        for (Cat cat: cats) {
+        for (Cat cat : cats) {
             cat.eat(catsBowl);
             cat.printFullnes();
         }
-
     }
 }
