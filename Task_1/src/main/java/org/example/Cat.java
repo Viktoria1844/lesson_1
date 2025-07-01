@@ -1,40 +1,45 @@
 package org.example;
 
 public class Cat extends Animal {
-    int MAX_RUN_DISTANCE = 250;
-    private static int CatCount = 0;
+    int MAX_RUN_DISTANCE = 200;
     boolean fullness;
+    public int portionSize;
+    private static int CatCount = 0;
 
     public Cat(String name) {
         super(name);
         CatCount++;
     }
 
-    @Override
-    public void run(int lenght) {
-        if (lenght >= MAX_RUN_DISTANCE) {
-            System.out.println(name + " не может пробежать " + lenght + " м.");
-        } else {
-            System.out.println(name + " пробежал(а) " + lenght + " м.");
-        }
+    public Cat(String name, int portionSize) {
+        super(name);
+        this.portionSize = portionSize;
+        fullness = false;
     }
 
-    @Override
-    public void swim(int lenght) {
-        System.out.println(name + " не умеет плавать, тк он(а) кот(кошка). ");
+    public void run(int distance) {
+        System.out.println(name + " пробежал " + (distance > MAX_RUN_DISTANCE ? MAX_RUN_DISTANCE : distance) + "м");
+    }
+
+    public void swim(int distance) {
+        System.out.println(name + " не умеет плавать");
     }
 
     public static int getCatCount() {
         return CatCount;
     }
 
-    public void eat(int foodAmount) {
-        if (foodAmount > 0) {
+    public void eat(BowlOfFood bowl) {
+        if (!fullness && bowl.foodAmount>portionSize) {
             fullness = true;
-            System.out.println(name + " покушал(а) из миски. ");
+            System.out.println(name + " съел(а) " + portionSize);
+            bowl.decFood(portionSize);
         } else {
-            fullness = false;
-            System.out.println(name + " не может покушать из миски, тк не хватает еды. ");
+            System.out.println(name + " не поел. Ему нужно " + portionSize + ", а в миске " + bowl.foodAmount);
         }
+    }
+
+    public void printFullnes() {
+        System.out.println(name + (fullness ? " сыт(а)" : " голоден"));;
     }
 }
