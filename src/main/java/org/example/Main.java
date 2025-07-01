@@ -1,6 +1,8 @@
 package org.example;
 
 
+import java.lang.reflect.Array;
+
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("1. Корректный массив  с суммой элементов 60 -> 60");
@@ -44,8 +46,8 @@ public class Main {
         System.out.println("4. Массив 4х4, не только числа -> MyArrayDataException");
         array = new String[][]{
                 {"1", null, "3", "4"},
-                {"1", "@", "3", "4"},
-                {"1", "2", "3", "4"},
+                {"5", ",", "6", "7"},
+                {"8", "9", "0", "1"},
                 {"-1", "-2", "-3", "-4"}
         };
         try {
@@ -54,9 +56,18 @@ public class Main {
             System.err.println(e);
         }
 
-        System.out.println("5. Массив 4х4, не только числа -> несколько MyArrayDataException");
-        Integer sum = Array4x4.sumWithInnerErrPrint(array);
-        System.out.println("Сумма элементов массива: " + ((sum == null) ? "ошибка" : sum));
+        System.out.println("5. Массив для генерации кода и поимки -> ArrayIndexOutOfBoundsException");
+        array = new String[][]{
+                {"1", "2", "3", "4"},
+                {"5", "6", "7", "8"},
+                {"9", "0", "1", "2"},
+                {"3", "4", "5", "0"}
+        };
+        try {
+            String[] value = array[5];
+            System.out.println("Значение: " + value);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.err.println("Произошло исключение: " + e.getMessage());
+        }
     }
-
 }
