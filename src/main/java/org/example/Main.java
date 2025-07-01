@@ -95,8 +95,8 @@ public class Main {
     }
 
     //7
-    public static boolean isNegative(int number) {
-        return number <= 0;
+    public static boolean isNegative(int a) {
+        return a < 0;
     }
 
     //8
