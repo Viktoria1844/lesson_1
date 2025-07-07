@@ -1,8 +1,8 @@
 package org.example;
 
 public class Dog extends Animal {
-    int MAX_RUN_DISTANCE = 500;
-    int MAX_SWIM_DISTANCE = 10;
+    private int MAX_RUN_DISTANCE = 500;
+    private int MAX_SWIM_DISTANCE = 10;
     private static int dogCount = 0;
 
     public Dog(String name) {

@@ -1,9 +1,9 @@
 package org.example;
 
 public class Cat extends Animal {
-    int MAX_RUN_DISTANCE = 200;
-    boolean fullness;
-    public int portionSize;
+    private int MAX_RUN_DISTANCE = 200;
+    private boolean fullness;
+    private int portionSize;
     private static int CatCount = 0;
 
     public Cat(String name) {

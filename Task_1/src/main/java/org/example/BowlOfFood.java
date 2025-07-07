@@ -2,7 +2,7 @@ package org.example;
 
 public class BowlOfFood {
 
-    final static int MAX_FOOD_AMOUNT = 50;
+    private final static int MAX_FOOD_AMOUNT = 50;
     public int foodAmount;
 
     public BowlOfFood(int foodAmount) {
