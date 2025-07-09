@@ -86,4 +86,17 @@ class PostmanEchoTest {
                 .assertThat().statusCode(200)
                 .and().body("data", is(TEST_DATASTRING));
     }
+
+    @Test
+    @DisplayName("PATCH Request")
+    public void patchRequest() {
+        given()
+                .log().all()
+                .body(TEST_DATASTRING)
+                .when().patch("/patch")
+                .then()
+                .log().all()
+                .assertThat().statusCode(200)
+                .and().body("data", is(TEST_DATASTRING));
+    }
 }
