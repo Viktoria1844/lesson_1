@@ -16,33 +16,33 @@ public class Main {
         Student Pasha = new Student("Паша", "К-32", 4, new int[]{3, 4, 3, 4, 5});
         Student Kesha = new Student("Кеша", "Ф-325", 3, new int[]{3, 3, 3, 3, 2});
         Student Nikolay = new Student("Николай", "П-98", 3, new int[]{2, 5, 5, 2, 5});
-        Student Petr = new Student("Пётр", "Р-25", 1, new int[]{4, 3, 3, 4, 5});
-        ArrayList<Student> studentsList = new ArrayList<Student>(Arrays.asList(Olya, Sasha, Pasha, Kesha, Nikolay, Petr));
+        Student Petr = new Student("Пётр", "Р-25", 4, new int[]{4, 3, 3, 4, 5});
+        ArrayList<Decanate> studentsList = new ArrayList<Decanate>(Arrays.asList(Olya, Sasha, Pasha, Kesha, Nikolay, Petr));
 
-        Student.printStudents(studentsList, 1);
+        Student.printStudents(studentsList, 3);
 
         System.out.println("-------------------------");
 
-        Student.print(studentsList);
-        Student.deleteStudents(studentsList);
-        Student.print(studentsList);
+        Decanate.print(studentsList);
+        Decanate.deleteStudents(studentsList);
+        Decanate.translateToNextCourse(studentsList);
 
+        Phonebook phoneBook = new Phonebook();
 
-        Phonebook.add("Забияка", "+375291234568");
-        Phonebook.add("Васечкин", "+375441887698");
-        Phonebook.add("Певцов", "+375332589476");
-        Phonebook.add("Иванов", "+3751118596");
-        Phonebook.add("Иванов", "+375441356972");
-        Phonebook.add("Савельев", "+375293479846");
+        phoneBook.add("Забияка", "+375291234568");
+        phoneBook.add("Васечкин", "+375441887698");
+        phoneBook.add("Певцов", "+375332589476");
+        phoneBook.add("Иванов", "+3751118596");
+        phoneBook.add("Иванов", "+375441356972");
+        phoneBook.add("Савельев", "+375293479846");
 
+        System.out.println("Телефоны Иванова: " + phoneBook.get("Иванов"));
+        System.out.println("Телефоны Савельев: " + phoneBook.get("Савельев"));
+        System.out.println("Телефоны Комарова: " + phoneBook.get("Комаров"));
 
-        Phonebook.get("Забияка");
-        Phonebook.get("Певцов");
-        Phonebook.get("Иванов");
-        Phonebook.get("Иванченко");
+        phoneBook.add("Шишкин", "+375441887698");
+        System.out.println("Телефоны Шишкина: " + phoneBook.get("Шишкин"));
     }
-
-
 }
 
 
