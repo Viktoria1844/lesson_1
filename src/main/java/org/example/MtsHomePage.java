@@ -47,7 +47,7 @@ public class MtsHomePage {
 
     //локатора для кнопки "Принять" куки
     @FindBy(xpath = "//div[2]/button[3]")
-    private WebElement cookieCancelBtn;
+    private WebElement cookieBtn;
 
 
     //Метод возвращает заголовок формы оплаты
@@ -95,8 +95,8 @@ public class MtsHomePage {
     }
 
     // Метод прожимает куки
-    public void clickCookieCancelBtn() {
-        cookieCancelBtn.click();
+    public void clickCookieBtn() {
+        cookieBtn.click();
     }
 }
 

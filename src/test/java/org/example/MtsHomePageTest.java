@@ -32,7 +32,7 @@ class MtsHomePageTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.get(PAGE_URL);
-        mtsHomePage.clickCookieCancelBtn();
+        mtsHomePage.clickCookieBtn();
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
     }
