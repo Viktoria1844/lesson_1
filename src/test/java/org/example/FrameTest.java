@@ -1,5 +1,8 @@
 package org.example;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Step;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -23,6 +26,8 @@ class FrameTest {
     public static final String TEST_PHONE_NUMBER = "297777777";
     public static final String TEST_SUM = "10.00";
 
+
+    @Story("Переход на базовый урл, настройка всех данных")
     @BeforeEach
     void setUp() {
         driver = new ChromeDriver();
@@ -38,6 +43,7 @@ class FrameTest {
     }
 
     @Test
+    @Epic("Проверка суммы в заголовке")
     @DisplayName("Сумма в заголовке")
     void descriptionCost() {
         String name = "Текст описания суммы в заголовке";
@@ -51,7 +57,8 @@ class FrameTest {
     }
 
     @Test
-    @DisplayName("Текст кнопки оплаты")
+    @Story("Проверка кнопки оплаты")
+    @DisplayName("Тест кнопки оплаты")
     void btnText() {
         String name = "Текст кнопки";
         try {
@@ -64,6 +71,7 @@ class FrameTest {
     }
 
     @Test
+    @Story("Проверка номера телефона в заголовке")
     @DisplayName("Номер телефона в заголовке")
     void descriptionPhone() {
         String name = "Номер телефона в заголовке";
