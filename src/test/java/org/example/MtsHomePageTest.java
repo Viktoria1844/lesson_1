@@ -21,9 +21,9 @@ import static javax.swing.UIManager.put;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MtsHomePageTest {
-    public static MtsHomePage mtsHomePage;
-    public static WebDriver driver;
-    public static final String PAGE_URL = "http://mts.by";
+    private static MtsHomePage mtsHomePage;
+    private static WebDriver driver;
+    private static final String PAGE_URL = "http://mts.by";
     WebDriverWait wait;
 
 
