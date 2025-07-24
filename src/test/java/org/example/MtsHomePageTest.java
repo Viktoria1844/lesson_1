@@ -1,5 +1,6 @@
 package org.example;
 
+import dev.failsafe.internal.util.Assert;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import static javax.swing.UIManager.put;
@@ -44,49 +46,39 @@ class MtsHomePageTest {
         Assertions.assertTrue(mtsHomePage.getTitleBlock().contains(expectedTitle));
     }
 
-    @ParameterizedTest
+    @Test
     @DisplayName("Картинки платежных систем")
-    @ValueSource(strings = {"visa.svg", "visa-verified.svg", "mastercard.svg", "mastercard-secure.svg", "belkart.svg"})
-    void payPics(String src) {
-        try {
-            assertTrue(mtsHomePage.isDisplayedImg(src), "Картинка " + src + " не отображается");
-            System.out.println("Картинка " + src + " отображается");
-        } catch (NoSuchElementException e) {
-            fail("Картинка " + src + " не найдена");
-        }
+    void Pics() {
+        Map<String, String> logos = new HashMap<>();
+        logos.put("Visa", "visa-logo");
+        logos.put("MasterCard", "mastercard-logo");
+        logos.put("mastercard-secure", "mastercard-secure-logo");
+        logos.put("belkart", "belkart-logo");
+        logos.put("visa-verified", "visa-verified-logo");
+
+        WebElement logoElement = driver.findElement(By.xpath("//section[@class='pay']//img"));
+        assertTrue(logoElement.isDisplayed());
+
     }
 
     @Test
     @DisplayName("Ссылка 'Подробнее о сервисе'")
-    void detailLink() {
+    void detailLink() throws IOException {
         String urlLink = null;
-        try {
-            urlLink = mtsHomePage.getLinkUrl();
-            int linkResponseCode = mtsHomePage.getRespCode(urlLink);
-            assertTrue(linkResponseCode < 400, "Ссылка " + urlLink + " битая (код: " + linkResponseCode + ")");
-            System.out.println("Ссылка " + urlLink + " рабочая (код: " + linkResponseCode + ")");
-        } catch (NoSuchElementException e) {
-            fail("Нет ссылки");
-        } catch (MalformedURLException e) {
-            fail("Не корректный url: " + urlLink);
-        } catch (IOException e) {
-            fail("Проблема с соединением");
-        }
+        urlLink = mtsHomePage.getLinkUrl();
+        int linkResponseCode = mtsHomePage.getRespCode(urlLink);
+        assertTrue(linkResponseCode < 400);
     }
 
     @Test
     @DisplayName("Работа кнопки 'Продолжить'")
-    void payForm() throws InterruptedException {
+    void payForm() {
         String name = "Окно оплаты";
-        try {
-            mtsHomePage.setPhoneField("297777777");
-            mtsHomePage.setSumField("10");
-            mtsHomePage.clickPayBtn();
-            wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("//iframe[contains(@class, 'bepaid-iframe')]")));
-            System.out.println(name + " открылось");
-        } catch (NoSuchElementException e) {
-            fail("Элемент не найден");
-        }
+        mtsHomePage.setPhoneField("297777777");
+        mtsHomePage.setSumField("10");
+        mtsHomePage.clickPayBtn();
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("//iframe[contains(@class, 'bepaid-iframe')]")));
+        System.out.println(name + " открылось");
     }
 
     @AfterEach

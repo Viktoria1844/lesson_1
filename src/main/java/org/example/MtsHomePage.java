@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.List;
 
 public class MtsHomePage {
-    public WebDriver driver;
+    protected WebDriver driver;
 
 
     public MtsHomePage(WebDriver driver) {
@@ -41,9 +41,6 @@ public class MtsHomePage {
     @FindBy(css = "#pay-connection > button")
     private WebElement payBtn;
 
-    //Локатор для картинок
-    @FindBy(xpath = "//section[@class='pay']//img")
-    private List<WebElement> payImgages;
 
     //локатора для кнопки "Принять" куки
     @FindBy(xpath = "//div[2]/button[3]")
@@ -61,7 +58,7 @@ public class MtsHomePage {
     }
 
     //Метод возвращает код ответа ссылки
-    public int getRespCode(String urlLink) throws MalformedURLException, IOException {
+    public int getRespCode(String urlLink) throws IOException {
         URL url = new URL(urlLink);
         HttpURLConnection httpURLConnect = (HttpURLConnection) url.openConnection();
         httpURLConnect.setConnectTimeout(10000);
@@ -82,16 +79,6 @@ public class MtsHomePage {
     //Метод нажимает на кнопку оплаты
     public void clickPayBtn() throws NoSuchElementException {
         payBtn.click();
-    }
-
-    //Возвращает отображается ли картинка именем src
-    public boolean isDisplayedImg(String scr) {
-        for (WebElement payImage : payImgages) {
-            if (payImage.getAttribute("src").contains(scr)) {
-                return payImage.isDisplayed();
-            }
-        }
-        return false;
     }
 
     // Метод прожимает куки
