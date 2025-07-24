@@ -1,6 +1,5 @@
 package org.example;
 
-import org.checkerframework.checker.units.qual.N;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -37,9 +36,6 @@ public class Frame {
     @FindBy(xpath = "//span[contains(text(), 'Оплата: Услуги связи')]")
     private WebElement payFrameDescriptionPhone;
 
-    //Локатор для картинок платежных систем в форме ввода номера карты;
-    @FindBy(css = "div.cards-brands img")
-    private List<WebElement> payImages;
 
     //Локатор для плейсхолдера поля ввода номера карты;
     @FindBy(xpath = "//div[@class='content ng-tns-c2312288139-1']")
@@ -70,16 +66,6 @@ public class Frame {
     //Возвращает текст номера телефона в описании оплаты;
     public String getFrameDescriptionPhone() throws NoSuchElementException {
         return payFrameDescriptionPhone.getText();
-    }
-
-    //Возвращает отображается ли картинка с именем src;
-    public boolean isDisplayedImg(String scr) throws NoSuchElementException {
-        for (WebElement payImage : payImages) {
-            if (payImage.getAttribute("src").contains(scr)) {
-                return payImage.isDisplayed() || payImage.getAttribute("style").contains("opacity: 0");
-            }
-        }
-        return false;
     }
 
     //Возвращает текст плейсхолдера поля ввода номера карты;
