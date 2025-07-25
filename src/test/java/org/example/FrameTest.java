@@ -3,30 +3,18 @@ package org.example;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
-class FrameTest extends BasePage {
+class FrameTest extends BasePageFrame {
 
     @Test
     @DisplayName("Сумма в заголовке")
     void descriptionCost() {
         String actualValue = frame.getFrameDescriptionCost();
-        assertEquals(TEST_SUM, actualValue);
+        assertEquals(TEST_SUM + " BYN", actualValue);
     }
 
     @Test

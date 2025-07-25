@@ -3,15 +3,10 @@ package org.example;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MtsHomePageTest extends BasePage {
+class MtsHomePageTest extends BasePageMtsHome {
 
     @ParameterizedTest
     @DisplayName("Проверка плейсхолдера формы оплаты на главной странице")
